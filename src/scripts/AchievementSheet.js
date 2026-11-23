@@ -77,9 +77,18 @@ export class AchievementSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   async loadData() {
-    // TODO: Wait for the System to catch up to modern day.
-    // this.v14keys = game.system.documentTypes.Actor.character.stats;
-    this.v12StatKeys = Object.keys(game.system.template.Actor.character.stats);
+    // game.system.template was removed in newer Foundry versions; game.model
+    // is the supported replacement, with a hardcoded fallback.
+    const charModel =
+      game.system.template?.Actor?.character ?? game.model?.Actor?.character;
+    this.v12StatKeys = Object.keys(
+      charModel?.stats ?? {
+        strength: 0,
+        speed: 0,
+        intellect: 0,
+        combat: 0,
+      }
+    );
     this.v12StatValues = this.v12StatKeys.map((key) => {
       return {
         value: key, // Use the key itself as the value, not the stat object
