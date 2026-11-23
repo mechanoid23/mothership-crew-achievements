@@ -81,14 +81,19 @@ export class AchievementSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     // is the supported replacement, with a hardcoded fallback.
     const charModel =
       game.system.template?.Actor?.character ?? game.model?.Actor?.character;
-    this.v12StatKeys = Object.keys(
-      charModel?.stats ?? {
-        strength: 0,
-        speed: 0,
-        intellect: 0,
-        combat: 0,
-      }
-    );
+    // Saves (sanity, fear, body) are stats in Mothership; always offer them.
+    this.v12StatKeys = [
+      ...new Set([
+        "strength",
+        "speed",
+        "intellect",
+        "combat",
+        "sanity",
+        "fear",
+        "body",
+        ...Object.keys(charModel?.stats ?? {}),
+      ]),
+    ];
     this.v12StatValues = this.v12StatKeys.map((key) => {
       return {
         value: key, // Use the key itself as the value, not the stat object
