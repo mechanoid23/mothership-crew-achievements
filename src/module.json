@@ -6,7 +6,7 @@
   "bugs": "https://github.com/mechanoid23/mothership-crew-achievements/issues",
   "changelog": "https://github.com/mechanoid23/mothership-crew-achievements/releases",
   "manifest": "https://raw.githubusercontent.com/mechanoid23/mothership-crew-achievements/master/src/module.json",
-  "download": "https://github.com/mechanoid23/mothership-crew-achievements/releases/download/v1.1.4/module.zip",
+  "download": "https://github.com/mechanoid23/mothership-crew-achievements/releases/download/v1.1.5/module.zip",
   "license": "https://github.com/mechanoid23/mothership-crew-achievements/raw/master/LICENSE",
   "readme": "https://github.com/mechanoid23/mothership-crew-achievements/raw/master/README.md",
   "flags": {
@@ -29,7 +29,7 @@
       "path": "lang/fr.json"
     }
   ],
-  "version": "1.1.4",
+  "version": "1.1.5",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
